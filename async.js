@@ -36,7 +36,7 @@ let intervalId = setInterval(() => {
 let count = 10;
 
 let timer = setTimeout(function countdown() {
-  console.log(count);
+//   console.log(count);
   count++;
 
   if (count > 0) {
@@ -47,5 +47,31 @@ let timer = setTimeout(function countdown() {
 // Stop countdown after 3 seconds
 setTimeout(() => {
   clearTimeout(timer);
-  console.log("Countdown stopped");
+//   console.log("Countdown stopped");
 }, 3000);
+
+const  DelayedGreeting =(name,delayTime) =>{
+    setTimeout(()=>{
+        // console.log(`Hello, ${name}`)
+    }, delayTime)
+}
+
+DelayedGreeting('Alice', 2000)
+
+function tellJoke(){
+    const intervalId = setInterval(()=>{
+        // console.log("Why don't skeletons fight each other?")
+    }, 2000)
+    setTimeout(()=>{
+        clearInterval(intervalId)
+        // console.log('10 s Up')
+    },10000)
+}
+tellJoke()
+
+const loadAsync = async()=>{
+    const res = await fetch('https://v2.jokeapi.dev/joke/Programming?type=single')
+    const data = await res.json()
+    console.log(data.joke)
+}
+loadAsync()
